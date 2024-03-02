@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews(); 
 var app = builder.Build();
 
+//to use lib file for ui 
+app.UseStaticFiles();
 //use mvc routing 
 app.UseRouting();
 app.MapControllerRoute(
