@@ -10,9 +10,9 @@ namespace WebApp.Controllers
             var categories=CategoriesRepository.GetCategories();
             return View(categories);
         }
-        public IActionResult Edit(int? id)
+        public IActionResult Edit([FromRoute]int? id)
         {
-            var category=new Category { CategoryId=id.HasValue?id.Value : 0};
+            var category = CategoriesRepository.GetCategoryById(id.HasValue ? id.Value : 0);
             return View(category);
         }
     }
