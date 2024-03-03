@@ -13,6 +13,7 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
                         @* href="@($"/categories/edit/{category.CategoryId}")" *@
                         <a class="btn btn-link" asp-controller="categories" asp-action="edit" asp-route-id="@category.CategoryId">Edit</a>
                     </td>
+                    <td> <a class="btn btn-link" asp-controller="categories" asp-action="delete" asp-route-categoryid="@category.CategoryId" onclick="return confirmDelete()"> Delete</a></td>
                 </tr>
             }
         </tbody>
@@ -36,3 +38,11 @@ else
 {
     <p>No categories available.</p>
 }
+
+@section Scripts{
+    <script>
+        function confirmDelete(){
+            return confirm("Are you sure you want to delete this category ?");
+        }
+    </script>
+}                  
